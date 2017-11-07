@@ -1,8 +1,12 @@
 # Clevo-Audio-Formatting-Service
 Clevo-Audio-Formatting-Service
 
+### Development
+`docker-compose up`
+
+
 ### Build
-`docker image build --tag clevo/clevo-audio-formatting-service .`
+`docker image build --tag audio-formatting-service ./app/`
 
 ### Push
 Login first:
@@ -11,5 +15,5 @@ Login first:
 
 Push to Docker Hub:
 
-`docker image push clevo/clevo-audio-formatting-service`
+`docker image push clevo/audio-formatting-service`
 
