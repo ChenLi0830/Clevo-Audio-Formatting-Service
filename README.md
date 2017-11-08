@@ -16,7 +16,7 @@ You would **NOT** want to modify the image unless:
 2. I can't think of another case, add more later
 
 ### Build Image
-`docker image build --tag audio-formatting-service ./app/`
+`docker image build --tag clevo/audio-formatting-service ./app/`
 
 ### Push Image
 Login Docker first:
