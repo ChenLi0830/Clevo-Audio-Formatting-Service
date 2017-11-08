@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: audio-formatting-service
+    image: clevo/audio-formatting-service
     volumes:
       - ./app:/app
     ports:

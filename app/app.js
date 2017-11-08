@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }))
 
-app.get('/', (req, res) => res.send('Audio Formatting Service is up :D'))
+app.get('/', (req, res) => res.send('Audio Formatting Service is up :D! Make use of it by posting with param \'url\''))
 
 app.post('/', (req, res) => {
   if (!req.body.url) {
