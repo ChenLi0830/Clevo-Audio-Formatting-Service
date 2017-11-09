@@ -1,7 +1,11 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const convertAudioToWav = require('./handler')
+// const convertAudioToWav = require('./convertAudioToWav')
+const handler = require('./handler')
+
 // parse body
 app.use(bodyParser.json())       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -14,10 +18,11 @@ app.post('/', (req, res) => {
   if (!req.body.url) {
     return res.send('No audio url!')
   }
-  convertAudioToWav(req.body.url)
-    .then(result => {
-      console.log('result', result)
-    })
+  handler(req.body.url)
+  // convertAudioToWav(req.body.url)
+  //   .then(result => {
+  //     console.log('result', result)
+  //   })
 //   console.log('req', req)
 //   console.log('req', Object.keys(req))
 //   console.log('req.body', req.body)
