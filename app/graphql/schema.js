@@ -2,6 +2,10 @@ const { makeExecutableSchema } = require('graphql-tools')
 const {formatAudioFile} = require('./resolvers')
 
 const typeDefs = `
+enum Encoding {
+  pcm_s16le
+}
+
 type SavedAudio {
   url: String!
 }
@@ -13,6 +17,9 @@ type Query {
 type Mutation {
   formatAudioFile (
     audioUrl: String!
+    encoding: Encoding
+    channel: Int
+    sampleRate: Int
   ): SavedAudio
 }
 
@@ -27,8 +34,8 @@ const resolvers = {
     // savedAudio: (_, { id }) => find(authors, { id: id }),
   },
   Mutation: {
-    formatAudioFile: (_, { audioUrl }) => {
-      return formatAudioFile(audioUrl)
+    formatAudioFile: (_, { audioUrl, encoding, channel, sampleRate }) => {
+      return formatAudioFile({audioUrl, encoding, channel, sampleRate})
       .then(result => {
         console.log('result', result)
         return {url: result}

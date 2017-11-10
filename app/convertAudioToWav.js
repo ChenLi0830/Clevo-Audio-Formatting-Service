@@ -3,7 +3,7 @@ const fs = require('fs')
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
-const convertAudioToWav = (filePath, outputPath = './', encoding = 'pcm_s16le', channel = 1, sampleRate = 8000) => {
+const convertAudioToWav = ({filePath, encoding = 'pcm_s16le', channel = 1, sampleRate = 8000, outputPath = './'}) => {
   let extension = path.extname(filePath)
   let baseName = path.basename(filePath, extension)
   const outputFilePath = `${outputPath}${baseName}.wav`
